@@ -19,22 +19,6 @@
                 templateUrl: 'template/welcome.html',
                 controller: 'defaultController'
             });
-        //    .when('/temp2', {
-        //        templateUrl: 'templates/temp2.html',
-        //        controller: 'templateController2'
-        //    })
-        //    .when('/temp3', {
-        //        templateUrl: 'templates/temp3.html',
-        //        controller: 'templateController3'
-        //    })
-        //    .when('/temp4', {
-        //        templateUrl: 'templates/temp4.html',
-        //        controller: 'templateController4'
-        //    })
-        //    .otherwise({
-        //        redirectTo: '/'
-        //    })
-
     }]);
 
     application.run(['$rootScope','$timeout',function ($rootScope, $timeout) {
