@@ -14,28 +14,10 @@
         max-height: 70% !important;
     }
 
-    .button-in {}
-
-    .button-in:active {
-        opacity: 1;
-        box-shadow: 150px 150px 200px grey;
-        -webkit-animation: spin 1s forwards;
-        animation: spin 1s forwards;
-    }
-
-    @-webkit-keyframes spin {
-        from { -webkit-transform: scale(.1,.1) skew(0deg) rotate(0deg); }
-        to { -webkit-transform:  scale(10,10) skew(0deg) rotate(360deg); }
-    }
-    @keyframes spin {
-        from { transform: scale(.1,.1) skew(0deg) rotate(0deg); }
-        to { transform: scale(10,10) skew(0deg) rotate(360deg); }
-    }
-
 </style>
 
 <div ng-controller="defaultController" class="div-startup">
-    <md-button class="md-primary md-fab md-button element-event-start button-in" ng-click="go('/home')">
+    <md-button class="md-primary md-fab md-button element-event-start" ng-click="go('/home')">
         <md-icon class="element-event-start" md-svg-icon="../resources/svg/iconmonstr-disk-icon.svg"></md-icon>
     </md-button>
 </div>
