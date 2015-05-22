@@ -1,0 +1,26 @@
+{
+  "name": "CV-Project",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Skylar92/CV-Project",
+  "authors": [
+    "maximgalich <maksym.galich@flexshore.com>"
+  ],
+  "description": "Description",
+  "main": "main",
+  "keywords": [
+    "AngularJs", "Polymer"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies":
+  {
+    "polymer": "~0.9.0"
+  }
+
+}

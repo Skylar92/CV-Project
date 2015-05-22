@@ -1,26 +1,4 @@
-<style>
-    .div-startup {
-        text-align: center;
-    }
-
-    .text-startup {
-        color: darkblue; text-align: center;
-    }
-
-    .element-event-start {
-        width: 150px !important;
-        height: 150px !important;
-        max-width: 70% !important;
-        max-height: 70% !important;
-    }
-
-</style>
-
-<div ng-controller="defaultController" class="div-startup">
-    <md-button class="md-primary md-fab md-button element-event-start" ng-click="go('/home')">
-        <md-icon class="element-event-start" md-svg-icon="../resources/svg/racer.svg" style="color: #000000"></md-icon>
-    </md-button>
+<div ng-controller="defaultController" ng-repeat="button in buttonList">
+    <button-navigate-simple ng-click="go('/home')">{{button}}</button-navigate-simple>
 </div>
-<div>
-    <h1 class=".md-display-4 text-startup"> Welcome to my experiment with Material Design</h1>
-</div>
+

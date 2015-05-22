@@ -2,7 +2,6 @@
 
     var application = angular.module('application', [
         'ngRoute',
-        'ngMaterial',
         'application.home']);
 
     application.config(['$routeProvider', function ($routeProvider) {
@@ -47,6 +46,8 @@
         var view = document.getElementById('view');
         view.classList.add('wrapper');
         view.classList.add('background-color-aqua');
+
+        $scope.buttonList = ['Welcome'];
 
         /**
          * Function to redirect to another page (must be global)
