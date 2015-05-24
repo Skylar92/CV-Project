@@ -3,14 +3,31 @@
 <head lang="en">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome</title>
-    <link rel="import" href="import.html">
+    <!--AngularJS Include Library-->
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-route/angular-route.min.js"></script>
+    <!--Native Include Library-->
+    <script src="../resources/js/application.js"></script>
+    <script src="../resources/js/applicationHome.js"></script>
+    <!--Native Include Library    -->
+    <link rel="stylesheet" href="../resources/css/native.css">
+    <!--Include Users Web Components    -->
+    <link rel="import" href="../components/button-navigate-simple.html">
 </head>
-<body ng-controller="defaultController">
-    <div id="view">
-        <div layout="row" layout-align="space-around center">
-            <md-progress-circular class="md-hue-2" md-mode="indeterminate" ng-hide="!layout.loading" ></md-progress-circular>
-        </div>
-        <div ng-view ng-hide="layout.loading"></div>
+<body>
+    <div ng-controller="defaultController" >
+        <button-navigate-simple></button-navigate-simple>
     </div>
+
+
+
+
+    <!--<div id="view">-->
+        <!--<div layout="row" layout-align="space-around center">-->
+            <!--<md-progress-circular class="md-hue-2" md-mode="indeterminate" ng-hide="!layout.loading" ></md-progress-circular>-->
+        <!--</div>-->
+        <!--<div ng-view ng-hide="layout.loading"></div>-->
+    <!--</div>-->
+
 </body>
 </html>

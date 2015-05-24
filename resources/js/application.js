@@ -43,10 +43,6 @@
 
     var defaultController = application.controller('defaultController', ['$scope', '$location', function ($scope, $location) {
 
-        var view = document.getElementById('view');
-        view.classList.add('wrapper');
-        view.classList.add('background-color-aqua');
-
         $scope.buttonList = ['Welcome'];
 
         /**

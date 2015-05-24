@@ -1,13 +1,23 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+<dom-module id="button-navigate-simple">
+    <style>
+        :host {
+            text-align: center;
+            color: #e75257;
+            size: 16px;
+        }
+    </style>
+    <template>
+        <p>Hello</p>
+    </template>
+</dom-module>
 
 <script>
 
     Polymer({
-        is: 'button-navigate-simple',
-
-        ready: function() {
-            this.innerHTML = '<button>{{button}}</button>'
-        }
+        is: 'button-navigate-simple'
     });
 
 </script>
