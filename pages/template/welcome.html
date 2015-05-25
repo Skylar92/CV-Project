@@ -1,4 +1,21 @@
-<div ng-controller="defaultController" ng-repeat="button in buttonList">
-    <button-navigate-simple ng-click="go('/home')">{{button}}</button-navigate-simple>
+<div ng-controller="defaultController">
+    <md-grid-list
+            md-cols-sm="1"
+            md-cols-md="2"
+            md-cols-gt-md="3"
+            md-row-height-gt-md="12:1"
+            md-row-height="1:3"
+            md-row-height-sm="12:1"
+            md-gutter="12px"
+            md-gutter-gt-sm="8px" ng-repeat="button in buttonList">
+        <md-grid-tile class="blue"
+                      md-rowspan="3"
+                      ng-style="{'background-color': button.style}">
+            <md-button class="button-md-grid-tile">
+                <md-grid-tile-footer>
+                    <h3>{{button.buttonName}}</h3>
+                </md-grid-tile-footer>
+            </md-button>
+        </md-grid-tile>
+    </md-grid-list>
 </div>
-

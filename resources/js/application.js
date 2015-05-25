@@ -2,6 +2,7 @@
 
     var application = angular.module('application', [
         'ngRoute',
+        'ngMaterial',
         'application.home']);
 
     application.config(['$routeProvider', function ($routeProvider) {
@@ -20,18 +21,22 @@
             });
     }]);
 
-    application.run(['$rootScope','$timeout',function ($rootScope, $timeout) {
+    application.run(['$rootScope', '$timeout', function ($rootScope, $timeout) {
 
         $rootScope.layout = {};
 
         $rootScope.$on('$routeChangeStart', function () {
             console.log('$routeChangeStart');
-            $timeout(function(){ $rootScope.layout.loading = true; });
+            $timeout(function () {
+                $rootScope.layout.loading = true;
+            });
         });
 
         $rootScope.$on('$routeChangeSuccess', function () {
             console.log('$routeChangeSuccess');
-            $timeout(function(){ $rootScope.layout.loading = false;}, 400);
+            $timeout(function () {
+                $rootScope.layout.loading = false;
+            }, 400);
         });
 
         $rootScope.$on('$routeChangeError', function () {
@@ -42,15 +47,42 @@
     }]);
 
     var defaultController = application.controller('defaultController', ['$scope', '$location', function ($scope, $location) {
+        console.log('This is run default controller');
+        $scope.buttonList = [
+            {
+                'buttonName': 'About me',
+                'id': '/aboutMe',
+                'style': '#42A5F5'
+            },
+            {
+                'buttonName': 'About my education',
+                'id': '/todo',
+                'style': '#42A5F5'
+            },
+            {
+                'buttonName': 'About my experience',
+                'id': '/todo',
+                'style': '#42A5F5'
+            }, {
+                'buttonName': 'My contacts',
+                'id': '/todo',
+                'style': '#42A5F5'
+            },
+            {
+                'buttonName': 'My projects',
+                'id': '/todo',
+                'style': '#42A5F5'
+            }
+        ];
 
-        $scope.buttonList = ['Welcome'];
+
 
         /**
          * Function to redirect to another page (must be global)
          * @param path - path to redirect
          */
-        $scope.go = function( path ) {
-            $location.path( path );
+        $scope.go = function (path) {
+            $location.path(path);
         };
     }]);
 
