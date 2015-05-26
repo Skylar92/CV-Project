@@ -1,3 +1,61 @@
-<div>
-    todo this page
+<style>
+    .grid-tile-animation {
+
+        animation-name: gtl;
+        animation-duration: 1s;
+
+        -webkit-animation-name: gtl;
+        -webkit-animation-duration: 1s;
+    }
+
+    @-webkit-keyframes gtl{
+        form {width: inherit; height: inherit}
+        to {width: 100%; height: 100%}
+    }
+
+    @keyframes gtl {
+        form {width: inherit; height: inherit}
+        to {width: 100%; height: 100%}
+    }
+</style>
+
+
+<div ng-controller="defaultController">
+    <md-grid-list
+            md-cols-sm="1"
+            md-cols-md="2"
+            md-cols-lg="4"
+            md-cols-gt-lg="4"
+
+            md-row-height-sm="12:1"
+            md-row-height-md="12:1"
+            md-row-height-gt-md="12:1"
+            md-row-height-lg="12:1"
+            md-row-height-gt-lg="12:1"
+
+            md-gutter="12px"
+            md-gutter-sm="5px">
+
+        <md-grid-tile
+                ng-repeat="button in buttonList"
+
+                md-rowspan="{{button.mdRowSpan}}"
+                md-rowspan-sm="5"
+
+                md-colspan="{{button.mdColSpan}}"
+                md-colspan-sm="1"
+
+                id="{{button.id}}"
+
+                style="background-color: {{button.ngColorTile}}"
+
+                ng-show="!isLoadingAnimation">
+            <md-button class="button-md-grid-tile" ng-click="redirect(button.id)">
+                <md-icon md-svg-icon="{{button.svgIcon}}" class="md-icon-style-home" alt="Alarm Icon"></md-icon>
+                <md-grid-tile-footer style="background-color: {{button.ngColorFooterTile}}">
+                    <h3 class="md-headline">{{button.buttonName}}</h3>
+                </md-grid-tile-footer>
+            </md-button>
+        </md-grid-tile>
+    </md-grid-list>
 </div>

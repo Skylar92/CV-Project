@@ -1,7 +1,3 @@
-#main-container {
-
-}
-
 .wrapper {
     height: 100%;
     width: 100%;
@@ -30,7 +26,11 @@ md-grid-tile {
     width: 100%
 }
 
-.a{
-    background-color: #42A5F5;
+.md-icon-style-home {
+    width: 50%;
+    height: 50%;
+    margin-bottom: 10%;
+    margin-top: 0.6%;
 }
+
 
