@@ -55,42 +55,48 @@
                 "ngColorTile":'#C8E6C9',
                 "ngColorFooterTile":'#2E7D32',
                 "mdRowSpan":'10',
-                "mdColSpan":'2'
+                "mdColSpan":'2',
+                'svgIcon':'assets/homeView/aboutMe.svg'
             },
             {
                 'buttonName': 'About my education',
-                "ngColorTile":'purple',
-                "ngColorFooterTile":'indigo',
+                "ngColorTile":'#E1BEE7',
+                "ngColorFooterTile":'#7B1FA2',
                 "mdRowSpan":'5',
-                "mdColSpan":'2'
+                "mdColSpan":'2',
+                'svgIcon':'assets/homeView/aboutEducation.svg'
             },
             {
                 'buttonName': 'About my experience',
-                "ngColorTile":'indigo',
-                "ngColorFooterTile":'purple',
+                "ngColorTile":'#C5E1A5',
+                "ngColorFooterTile":'#558B2F',
                 "mdRowSpan":'5',
-                "mdColSpan":'2'
+                "mdColSpan":'2',
+                'svgIcon':'assets/homeView/aboutExperience.svg'
             },
             {
                 'buttonName': 'About my wishes',
                 "ngColorTile":'#009688',
                 "ngColorFooterTile":'#3949AB',
                 "mdRowSpan":'5',
-                "mdColSpan":'4'
+                "mdColSpan":'4',
+                'svgIcon':'assets/homeView/aboutWishes.svg'
             },
             {
                 'buttonName': 'My projects',
                 "ngColorTile":'#E57373',
                 "ngColorFooterTile":'#FF4081',
                 "mdRowSpan":'4',
-                "mdColSpan":'3'
+                "mdColSpan":'3',
+                'svgIcon':'assets/homeView/myProjects.svg'
             },
             {
                 'buttonName': 'My contacts',
                 "ngColorTile":'#B2DFDB',
                 "ngColorFooterTile":'#00695C',
                 "mdRowSpan":'4',
-                "mdColSpan":'1'
+                "mdColSpan":'1',
+                'svgIcon':'assets/homeView/myContact.svg'
             }
         ];
 
