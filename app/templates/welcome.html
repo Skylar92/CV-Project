@@ -1,0 +1,33 @@
+<div ng-controller="defaultController">
+    <md-grid-list
+            md-cols-sm="1"
+            md-cols-md="2"
+            md-cols-lg="4"
+            md-cols-gt-lg="4"
+
+            md-row-height-sm="12:1"
+            md-row-height-md="12:1"
+            md-row-height-gt-md="12:1"
+            md-row-height-lg="12:1"
+            md-row-height-gt-lg="12:1"
+
+            md-gutter="12px"
+            md-gutter-sm="5px">
+
+        <md-grid-tile
+                ng-repeat="button in buttonList"
+
+                md-rowspan="{{button.mdRowSpan}}"
+                md-rowspan-sm="5"
+
+                md-colspan="{{button.mdColSpan}}"
+                md-colspan-sm="1" style="background-color: {{button.ngColorTile}}">
+            <md-button class="button-md-grid-tile">
+                <md-icon md-svg-icon="assets/aboutMe.svg"></md-icon>
+                <md-grid-tile-footer style="background-color: {{button.ngColorFooterTile}}">
+                    <h3>{{button.buttonName}}</h3>
+                </md-grid-tile-footer>
+            </md-button>
+        </md-grid-tile>
+    </md-grid-list>
+</div>

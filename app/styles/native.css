@@ -1,0 +1,36 @@
+#main-container {
+
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+.background-color-aqua {
+    background-color: aqua;
+}
+
+.background-color-cherry {
+    background-color: #e75257;
+}
+
+md-grid-list {
+    margin: 8px;
+}
+
+md-grid-tile {
+    width: 100%;
+    height: 100% transition : all 400 ms ease-out 50 ms;
+}
+
+.button-md-grid-tile {
+    display: table-row-group !important;
+    height: 100%;
+    width: 100%
+}
+
+.a{
+    background-color: #42A5F5;
+}
+
