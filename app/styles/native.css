@@ -3,6 +3,10 @@ html, body {
     height: 100%;
 }
 
+body {
+    display: inline-block;
+}
+
 .wrapper {
     height: 100%;
     width: 100%;
@@ -35,7 +39,7 @@ md-grid-tile {
     width: 50%;
     height: 50%;
     margin-bottom: 10%;
-    margin-top: 0.6%;
+    margin-top: 5%;
 }
 
 
