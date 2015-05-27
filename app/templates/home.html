@@ -9,13 +9,22 @@
     }
 
     @-webkit-keyframes gtl{
-        form {width: inherit; height: inherit}
-        to {width: 100%; height: 100%}
+        to {
+            width: 100%;
+            height: 150%;
+            margin: 0%;
+            left: 0%;
+
+        }
     }
 
     @keyframes gtl {
-        form {width: inherit; height: inherit}
-        to {width: 100%; height: 100%}
+        to {
+            width: 100%;
+            height: 150%;
+            margin: 0%;
+            left: 0%;
+        }
     }
 </style>
 
@@ -34,7 +43,8 @@
             md-row-height-gt-lg="12:1"
 
             md-gutter="12px"
-            md-gutter-sm="5px">
+            md-gutter-sm="5px"
+            style="width: inherit; height: inherit">
 
         <md-grid-tile
                 ng-repeat="button in buttonList"
