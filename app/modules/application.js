@@ -114,20 +114,20 @@
         $scope.redirect = function (id) {
             $scope.isLoadingAnimation = true;
 
-            var element = document.getElementById(id);
-            var classList = element.classList;
-            classList.add('grid-tile-animation');
-
-            console.log(id + '-image');
-            var elementImage = document.getElementById(id + '-image');
-            var classImage = elementImage.classList;
-            classImage.add('image-animation');
+            document.getElementById(id).classList.add('grid-tile-animation');
+            document.getElementById(id + '-image').classList.add('image-animation');
 
             $timeout(function () {
                 $location.path(id);
-                classList.remove('grid-tile-animation');
-                classImage.remove('image-animation');
             }, 1000);
+
+        };
+
+        $scope.addClass = function(id, className) {
+            document.getElementById(id).classList.add('grid-tile-animation');
+        };
+
+        $scope.removeClass = function(id, className) {
 
         };
     }]);
