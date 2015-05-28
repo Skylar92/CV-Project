@@ -123,13 +123,6 @@
 
         };
 
-        $scope.addClass = function(id, className) {
-            document.getElementById(id).classList.add('grid-tile-animation');
-        };
-
-        $scope.removeClass = function(id, className) {
-
-        };
     }]);
 
 })();

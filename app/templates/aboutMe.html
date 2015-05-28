@@ -6,18 +6,73 @@
         height: 100%;
     }
 
+    .button-animation-back {
+        animation-name: bab;
+        animation-duration: 1s;
+
+        -webkit-animation-name: bab;
+        -webkit-animation-duration: 1s;
+    }
+
+    @-webkit-keyframes bab {
+        to {
+            -webkit-transform: rotate(-360deg);
+            width: 0;
+            height: 0;
+        }
+    }
+
+    @keyframes bab {
+        to {
+            transform: rotate(-360deg);
+            width: 0;
+            height: 0;
+        }
+    }
+
+    .content-animation-back {
+
+        animation-name: cab;
+        animation-duration: 1s;
+        backface-visibility: hidden;
+
+        -webkit-animation-name: cab;
+        -webkit-animation-duration: 1s;
+        -webkit-backface-visibility: hidden;
+    }
+
+    @-webkit-keyframes cab {
+        to {
+            /*padding-top: 0;*/
+            /*padding-bottom: 0;*/
+            height: 0%;
+            padding: 0%;
+        }
+    }
+
+    @keyframes cab {
+        to {
+            /*padding-top: 0;*/
+            /*padding-bottom: 0;*/
+            height: 0%;
+            padding: 0%;
+        }
+    }
+
 </style>
 
 <div ng-controller="aboutMeController" style="height: 90%">
-    <md-content class="md-padding" id="aboutMeContent">
+    <md-content class="md-padding background-color-about-me" id="aboutMeContent">
         <div style="text-align: left">
-            <md-button class="md-fab" aria-label="back">
-                <!--<md-icon md-svg-src="img/icons/cake.svg"></md-icon>-->
+            <md-button class="md-fab" aria-label="back" style="background-color: #323232" ng-click="goBack('aboutMeContent')">
+                <md-icon
+                        md-svg-src="../bower_components/material-design-icons/image/svg/production/ic_navigate_before_24px.svg" id="backImage"></md-icon>
             </md-button>
         </div>
         <h1 class="md-display-2">About me</h1>
 
-        <p class="md-body-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque
+        <p class="md-body-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.
+            Phasellus volutpat neque
             ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est,
             sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in
             ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante
@@ -27,13 +82,15 @@
             bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor
             purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
 
-        <p class="md-body-2">Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec
+        <p class="md-body-2">Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci
+            nec magna. Donec
             posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus
             faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna
             libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor.
             Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
 
-        <p class="md-body-2">Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum.
+        <p class="md-body-2">Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur
+            posuere molestie dictum.
             Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu
             fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim
             scelerisque, finibus commodo lectus.</p>
