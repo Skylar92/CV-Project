@@ -1,0 +1,95 @@
+/*
+|--------------------------------------|
+|Rules to animating image in home page |
+|--------------------------------------|
+*/
+.image-animation {
+    animation-name: ia;
+    animation-duration: 1s;
+    backface-visibility: hidden;
+
+    -webkit-animation-name: ia;
+    -webkit-animation-duration: 1s;
+    -webkit-backface-visibility: hidden;
+}
+
+@-webkit-keyframes ia{
+    to {
+        margin-top: 5%;
+        opacity: 0;
+    }
+}
+
+@keyframes ia {
+    to {
+        margin-top: 5%;
+        opacity: 0;
+    }
+}
+
+/*
+|------------------------------------------|
+|Rules to animating grid tile in home page |
+|------------------------------------------|
+*/
+.grid-tile-animation {
+    animation-name: gtl;
+    animation-duration: 1s;
+    backface-visibility: hidden;
+
+    -webkit-animation-name: gtl;
+    -webkit-animation-duration: 1s;
+    -webkit-backface-visibility: hidden;
+}
+
+@-webkit-keyframes gtl{
+    50% {
+        height: 20%;
+    }
+    to {
+        width: 100%;
+        height: 100%;
+        margin: 0%;
+        left: 0%;
+    }
+}
+
+@keyframes gtl {
+    50% {
+        height: 20%;
+    }
+
+    to {
+        width: 100%;
+        height: 100%;
+        margin: 0%;
+        left: 0%;
+    }
+}
+
+/*
+|-------------------------------------|
+|Rules styling grid tile in home page |
+|-------------------------------------|
+*/
+md-grid-list {
+    margin: 8px;
+}
+
+md-grid-tile {
+    width: 100%;
+    height: 100% transition : all 400 ms ease-out 50 ms;
+}
+
+.button-md-grid-tile {
+    display: table-row-group !important;
+    height: 100%;
+    width: 100%
+}
+
+.md-icon-style-home {
+    width: 50%;
+    height: 50%;
+    margin-bottom: 10%;
+    margin-top: 5%;
+}

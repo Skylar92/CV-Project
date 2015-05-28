@@ -1,66 +1,3 @@
-<style>
-
-    .image-animation {
-        animation-name: ia;
-        animation-duration: 1s;
-        backface-visibility: hidden;
-
-        -webkit-animation-name: ia;
-        -webkit-animation-duration: 1s;
-        -webkit-backface-visibility: hidden;
-    }
-
-    @-webkit-keyframes ia{
-        to {
-            margin-top: 5%;
-            opacity: 0;
-        }
-    }
-
-    @keyframes ia {
-        to {
-            margin-top: 5%;
-            opacity: 0;
-        }
-    }
-
-    .grid-tile-animation {
-        animation-name: gtl;
-        animation-duration: 1s;
-        backface-visibility: hidden;
-
-        -webkit-animation-name: gtl;
-        -webkit-animation-duration: 1s;
-        -webkit-backface-visibility: hidden;
-    }
-
-    @-webkit-keyframes gtl{
-        50% {
-            height: 20%;
-        }
-        to {
-            width: 100%;
-            height: 100%;
-            margin: 0%;
-            left: 0%;
-        }
-    }
-
-    @keyframes gtl {
-        50% {
-            height: 20%;
-        }
-
-        to {
-            width: 100%;
-            height: 100%;
-            margin: 0%;
-            left: 0%;
-        }
-    }
-</style>
-
-
 <div ng-controller="defaultController">
     <md-grid-list
             md-cols-sm="1"
@@ -95,12 +32,13 @@
                 ng-click="redirect(button.id)"
 
                 ng-show="!isLoadingAnimation">
-            <!--<md-button class="button-md-grid-tile" ng-click="redirect(button.id)">-->
-                <md-icon md-svg-icon="{{button.svgIcon}}" class="md-icon-style-home" id="{{button.id}}-image"></md-icon>
-                <md-grid-tile-footer style="background-color: {{button.ngColorFooterTile}}"  ng-show="!isLoadingAnimation">
-                    <h3 class="md-headline">{{button.buttonName}}</h3>
-                </md-grid-tile-footer>
-            <!--</md-button>-->
+
+            <md-icon md-svg-icon="{{button.svgIcon}}" class="md-icon-style-home" id="{{button.id}}-image"></md-icon>
+
+            <md-grid-tile-footer style="background-color: {{button.ngColorFooterTile}}" ng-show="!isLoadingAnimation">
+                <h3 class="md-headline">{{button.buttonName}}</h3>
+            </md-grid-tile-footer>
+
         </md-grid-tile>
     </md-grid-list>
 </div>
