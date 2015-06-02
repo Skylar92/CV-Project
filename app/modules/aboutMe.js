@@ -5,7 +5,6 @@ aboutMeModule.controller('aboutMeController', ['$scope', '$location', '$timeout'
     document.title = 'About me';
 
     $scope.goBack = function(id) {
-        //document.getElementById('backImage').classList.add('button-animation-back');
         document.getElementById(id).classList.add('content-animation-back');
 
         $timeout(function () {
