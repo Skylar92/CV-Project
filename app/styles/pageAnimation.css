@@ -1,0 +1,35 @@
+.content-animation-back {
+
+    animation-name: content-animation-back;
+    animation-duration: 1s;
+    backface-visibility: hidden;
+
+    -webkit-animation-name: content-animation-back;
+    -webkit-animation-duration: 1s;
+    -webkit-backface-visibility: hidden;
+}
+
+@-webkit-keyframes content-animation-back {
+
+    50% {
+        margin: 16px;
+    }
+
+    to {
+        height: 0%;
+        margin: 16px;
+        opacity: 0;
+    }
+}
+
+@keyframes content-animation-back {
+    50% {
+        margin: 16px;
+    }
+
+    to {
+        height: 0%;
+        margin: 16px;
+        opacity: 0;
+    }
+}

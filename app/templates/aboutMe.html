@@ -1,41 +1,8 @@
-<style>
-
-    .background-color-about-me {
-        background-color: #C8E6C9 !important;
-        margin: 8px;
-        height: 100%;
-    }
-
-    .content-animation-back {
-
-        animation-name: cab;
-        animation-duration: 1s;
-        backface-visibility: hidden;
-
-        -webkit-animation-name: cab;
-        -webkit-animation-duration: 1s;
-        -webkit-backface-visibility: hidden;
-    }
-
-    @-webkit-keyframes cab {
-        to {
-            height: 0%;
-            padding: 0%;
-        }
-    }
-
-    @keyframes cab {
-        to {
-            height: 0%;
-            padding: 0%;
-        }
-    }
-
-</style>
-
 <div ng-controller="aboutMeController" style="height: 90%">
     <md-content class="md-padding background-color-about-me" id="aboutMeContent">
+
         <button-back ng-click="goBack('aboutMeContent')">Back</button-back>
+
         <h1 class="md-display-2">About me</h1>
 
         <p class="md-body-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.
