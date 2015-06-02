@@ -1,4 +1,4 @@
-<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../app/polymer-elements/button-back.html"/>
 <style>
 
     .background-color-about-me {
@@ -60,9 +60,7 @@
 
 <div ng-controller="aboutMeController" style="height: 90%">
     <md-content class="md-padding background-color-about-me" id="aboutMeContent">
-        <div style="text-align: left">
-            <paper-button tabindex="0" raised ng-click="goBack('aboutMeContent')">Back</paper-button>
-        </div>
+        <button-back ng-click="goBack('aboutMeContent')">Back</button-back>
         <h1 class="md-display-2">About me</h1>
 
         <p class="md-body-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.
