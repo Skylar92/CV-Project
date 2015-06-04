@@ -99,9 +99,6 @@
 |Rules styling grid tile in home page |
 |-------------------------------------|
 */
-md-grid-list {
-    margin: 8px;
-}
 
 md-grid-tile {
     width: 100%;

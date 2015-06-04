@@ -4,17 +4,9 @@
         height: 100%;
     }
 
-    .header, .footer {
-        padding: 8px 24px;
-    }
-
-    .footer {
-        text-align: right;
-    }
-
 </style>
 
-<div ng-controller="aboutMeController" style="height: 90%">
+<div ng-controller="aboutMeController" style="height: 100%">
     <!--<md-content class="md-padding background-color-about-me" id="aboutMeContent">-->
 <!---->
         <!--<button-back ng-click="goBack('aboutMeContent')">Back</button-back>-->
@@ -22,7 +14,7 @@
         <section class="layout vertical background-color-about-me md-padding" id="aboutMeContent">
 
             <div class="header paper-font-title">
-                <button-back ng-click="goBack('aboutMeContent')">Back</button-back> About me
+                <button-back ng-click="goBack('aboutMeContent')"></button-back> <span style="font-size: 60px">About me</span>
             </div>
 
             <paper-dialog-scrollable class="flex paper-font-body1">

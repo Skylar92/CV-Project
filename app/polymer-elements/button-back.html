@@ -5,64 +5,29 @@
 <dom-module id="button-back">
 
     <style>
-        :host {
-            text-align: left;
 
-        }
-
-        .add {
-            background-color: #323232;
-            color: #f5f5f5;
-        }
-
-        .blue {
-            background-color: #4285f4;
-            color: #fff;
-        }
-
-        .icon-button {
+        .fab {
             position: relative;
             display: inline-block;
             width: 56px;
             height: 56px;
-        }
-
-        .icon-button > iron-icon {
-            margin: 16px;
-            transition: -webkit-transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .icon-button:hover > iron-icon {
-            -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-        }
-
-        .icon-button > paper-ripple {
+            border-radius: 50%;
+            color: #fff;
             overflow: hidden;
-            color: #646464;
+            transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transition-delay: 0.2s;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
         }
 
-        .icon-button.red > iron-icon::shadow path {
-            fill: #db4437;
+        .fab.red {
+            background-color: #d23f31;
         }
 
-        .icon-button.red > paper-ripple {
-            color: #db4437;
-        }
-
-        .icon-button.blue > iron-icon::shadow path {
-            fill: #4285f4;
-        }
-
-        .icon-button.blue > paper-ripple {
-            color: #4285f4;
-        }
     </style>
 
     <template>
-        <div class="icon-button">
-            <iron-icon icon="more-vert"></iron-icon>
+        <div class="fab red">
+            <iron-icon icon="add"></iron-icon>
             <paper-ripple class="circle" recenters></paper-ripple>
         </div>
     </template>
