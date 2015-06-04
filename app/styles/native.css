@@ -5,7 +5,7 @@ html, body, #content-view {
 }
 
 body {
-    overflow: hidden;
+    overflow: auto;
     background-color: #323232 !important;
     display: inline-block;
 }

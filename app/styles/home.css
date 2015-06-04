@@ -96,6 +96,50 @@
 
 /*
 |-------------------------------------|
+*/
+
+.hide-grid-tile {
+    animation-name: hgt;
+    animation-duration: 250ms;
+    backface-visibility: hidden;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-name: hgt;
+    -webkit-animation-duration: 250ms;
+    -webkit-backface-visibility: hidden;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+
+    -moz-animation-name: hgt;
+    -moz-animation-duration: 250ms;
+    -moz-backface-visibility: hidden;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes hgt{
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes hgt {
+    100% {
+        opacity: 0;
+    }
+
+}
+
+@keyframes hgt {
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/*
+|-------------------------------------|
 |Rules styling grid tile in home page |
 |-------------------------------------|
 */

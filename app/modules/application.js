@@ -60,6 +60,7 @@
          */
         $scope.redirect = function (id) {
             $scope.isLoadingAnimation = true;
+            $scope.hideElementsWithout($scope.buttonList, id);
 
             document.getElementById(id).classList.add('grid-tile-animation');
             document.getElementById(id + '-image').classList.add('image-animation');
@@ -69,6 +70,15 @@
             }, 1000);
 
         };
+
+        $scope.hideElementsWithout = function(buttonList, id) {
+            for(var i = 0; i < buttonList.length; i++) {
+                var button = buttonList[i];
+                if(button.id !== id) {
+                    document.getElementById(button.id).classList.add('hide-grid-tile');
+                }
+            }
+        }
 
     }]);
 
