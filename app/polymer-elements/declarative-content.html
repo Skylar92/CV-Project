@@ -1,0 +1,70 @@
+<dom-module id="declarative-content">
+
+    <style>
+
+        neon-animatable {
+            color: white;
+        }
+
+        #content-view {
+            background-color: #00b8d4;
+        }
+
+
+    </style>
+
+    <template>
+
+        <div class="fullbleed layout vertical" id="content-view">
+
+            <div class="toolbar">
+                <button on-click="_onPrevClick">&lt;&lt;</button>
+                <button on-click="_onNextClick">&gt;&gt;</button>
+            </div>
+
+            <neon-animated-pages id="views"
+                                 class="flex"
+                                 selected="[[selected]]"
+                                 entry-animation="[[entryAnimation]]"
+                                 exit-animation="[[exitAnimation]]">
+
+                <neon-animatable>test text one</neon-animatable>
+
+                <neon-animatable>test text two</neon-animatable>
+
+                <neon-animatable>test text three</neon-animatable>
+
+            </neon-animated-pages>
+        </div>
+
+    </template>
+
+
+</dom-module>
+
+
+<script>
+
+    Polymer({
+        is: 'declarative-content',
+
+        ready: function () {
+            //this must be get size of max selected
+            this.selected = 0;
+        },
+
+        _onPrevClick: function () {
+            this.entryAnimation = 'slide-from-left-animation';
+            this.exitAnimation = 'slide-right-animation';
+            this.selected = this.selected === 0 ? 2 : (this.selected - 1);
+        },
+
+        _onNextClick: function () {
+            this.entryAnimation = 'slide-from-right-animation';
+            this.exitAnimation = 'slide-left-animation';
+            this.selected = this.selected === 2 ? 0 : (this.selected + 1);
+        }
+    })
+
+
+</script>
