@@ -27,42 +27,42 @@
                                  selected="[[selected]]"
                                  entry-animation="[[entryAnimation]]"
                                  exit-animation="[[exitAnimation]]">
-
-                <neon-animatable>test text one</neon-animatable>
-
-                <neon-animatable>test text two</neon-animatable>
-
-                <neon-animatable>test text three</neon-animatable>
+            <template is="dom-repeat" items="{{dataView}}">
+                <neon-animatable>{{item.content}}</neon-animatable>
+            </template>
 
             </neon-animated-pages>
         </div>
 
     </template>
 
-
 </dom-module>
 
 
 <script>
 
-    Polymer({
+    DeclarativeContent = Polymer({
         is: 'declarative-content',
 
+        factoryImpl: function(data) {
+            this.dataView = data;
+            this.dataSize = data.length - 1;
+        },
+
         ready: function () {
-            //this must be get size of max selected
             this.selected = 0;
         },
 
         _onPrevClick: function () {
             this.entryAnimation = 'slide-from-left-animation';
             this.exitAnimation = 'slide-right-animation';
-            this.selected = this.selected === 0 ? 2 : (this.selected - 1);
+            this.selected = this.selected === 0 ? this.dataSize : (this.selected - 1);
         },
 
         _onNextClick: function () {
             this.entryAnimation = 'slide-from-right-animation';
             this.exitAnimation = 'slide-left-animation';
-            this.selected = this.selected === 2 ? 0 : (this.selected + 1);
+            this.selected = this.selected === this.dataSize ? 0 : (this.selected + 1);
         }
     })
 
