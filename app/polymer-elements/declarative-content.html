@@ -1,13 +1,27 @@
 <dom-module id="declarative-content">
 
-    <style>
+    <style is="custom">
 
-        neon-animatable {
-            color: white;
+        :host {
+            @apply(--layout-horizontal);
+            @apply(--layout-center-center);
+            @apply(--layout-fit);
         }
 
-        #content-view {
-            background-color: #00b8d4;
+        #header {
+            height: 10%;
+        }
+
+        #views {
+            height: 80%;
+        }
+
+        #footer {
+            height: 10%;
+        }
+
+        #content-text {
+            color: white;
         }
 
 
@@ -15,23 +29,27 @@
 
     <template>
 
-        <div class="fullbleed layout vertical" id="content-view">
-
-            <div class="toolbar">
-                <button on-click="_onPrevClick">&lt;&lt;</button>
-                <button on-click="_onNextClick">&gt;&gt;</button>
+        <div id="content-view">
+            <div class="flex self-start" id="header">
+                <button-back></button-back>
             </div>
 
             <neon-animated-pages id="views"
-                                 class="flex"
+                                 class="flex self-center"
                                  selected="[[selected]]"
                                  entry-animation="[[entryAnimation]]"
                                  exit-animation="[[exitAnimation]]">
-            <template is="dom-repeat" items="{{dataView}}">
-                <neon-animatable>{{item.content}}</neon-animatable>
-            </template>
-
+                <template is="dom-repeat" items="{{dataView}}">
+                    <neon-animatable id="{{item.id}}">
+                        <div class="flex self-center" id="content-text">{{item.content}}</div>
+                    </neon-animatable>
+                </template>
             </neon-animated-pages>
+
+            <div class="toolbar flex self-end" style="text-align: center" id="footer">
+                <button-back on-click="_onPrevClick"></button-back>
+                <button-back on-click="_onNextClick"></button-back>
+            </div>
         </div>
 
     </template>
@@ -44,13 +62,20 @@
     DeclarativeContent = Polymer({
         is: 'declarative-content',
 
-        factoryImpl: function(data) {
+        /**
+         * @param data - JSON object which comprises content and background color to each content.
+         */
+        factoryImpl: function (data) {
             this.dataView = data;
             this.dataSize = data.length - 1;
+            this.selected = 0;
         },
 
-        ready: function () {
-            this.selected = 0;
+        attached: function() {
+            //Modify background color after view content
+            this.changeColorsContent(this.selected);
+            //apply to each neon-animatable background color
+            this.addColorToEachNeonAnimatable();
         },
 
         _onPrevClick: function () {
@@ -63,6 +88,35 @@
             this.entryAnimation = 'slide-from-right-animation';
             this.exitAnimation = 'slide-left-animation';
             this.selected = this.selected === this.dataSize ? 0 : (this.selected + 1);
+        },
+
+        changeColorsContent: function (select) {
+            var styleContent = document.getElementById('content-view').style;
+            if(styleContent == null || styleContent == undefined)
+                throw DOMException('Content not yet prepared for modify styles');
+
+            var color = this.dataView[select].color;
+            if(color == null || color == undefined)
+                color = 'white';
+
+            styleContent.backgroundColor = color;
+        },
+
+        //todo this method
+        addColorToEachNeonAnimatable : function() {
+//            var style = document.createElement('style');
+//            style.type = 'text/css';
+//            var cssRules = '';
+//            for(var i = 0; i < this.dataView.length; i++) {
+//                //create dynamic CSS class
+//                var colorContent = '--paper-' + this.dataView[i].id + "\n";
+//                cssRules = cssRules + colorContent + '#'+ this.dataView[i].id + ' { background: var('+ colorContent + '); }\n';
+//            }
+//            console.log(cssRules);
+//
+//            var styleContent = document.querySelector('style[is="custom"]');
+//            console.log(styleContent);
+//            styleContent.appendChild(style);
         }
     })
 

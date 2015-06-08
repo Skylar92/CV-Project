@@ -5,10 +5,26 @@ aboutMeModule.controller('aboutMeController', ['$scope', '$location', '$timeout'
     document.title = 'About me';
 
     $scope.data = [
-        {content : "Banana"},
-        {content : "Orange"},
-        {content : "Apple"},
-        {content : "Mango"}
+        {
+            id : '1',
+            content : 'Banana',
+            color : '#2E7D32'
+        },
+        {
+            id : '2',
+            content : 'Orange',
+            color : '#7B1FA2'
+        },
+        {
+            id : '3',
+            content : 'Apple',
+            color : '#558B2F'
+        },
+        {
+            id : '4',
+            content : 'Mango',
+            color : '#3949AB'
+        }
     ];
 
     if (document.getElementById('content-view') === null) {
