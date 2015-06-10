@@ -1,6 +1,6 @@
 <dom-module id="declarative-content">
 
-    <style is="custom">
+    <style>
 
         :host {
             @apply(--layout-horizontal);
@@ -8,48 +8,34 @@
             @apply(--layout-fit);
         }
 
-        #header {
-            height: 10%;
-        }
-
-        #views {
-            height: 80%;
-        }
-
-        #footer {
-            height: 10%;
-        }
-
-        #content-text {
+        .text {
             color: white;
         }
-
 
     </style>
 
     <template>
 
-        <div id="content-view">
-            <div class="flex self-start" id="header">
+        <div id="content-view" class="fullbleed layout vertical">
+            <div id="header">
                 <button-back></button-back>
+                <span style="text-align: center">
+                    <button-back on-click="_onPrevClick"></button-back>
+                    <button-back on-click="_onNextClick"></button-back>
+                </span>
             </div>
 
             <neon-animated-pages id="views"
-                                 class="flex self-center"
+                                 class="flex"
                                  selected="[[selected]]"
                                  entry-animation="[[entryAnimation]]"
                                  exit-animation="[[exitAnimation]]">
                 <template is="dom-repeat" items="{{dataView}}">
                     <neon-animatable id="{{item.id}}">
-                        <div class="flex self-center" id="content-text">{{item.content}}</div>
+                        <div class="text">{{item.content}}</div>
                     </neon-animatable>
                 </template>
             </neon-animated-pages>
-
-            <div class="toolbar flex self-end" style="text-align: center" id="footer">
-                <button-back on-click="_onPrevClick"></button-back>
-                <button-back on-click="_onNextClick"></button-back>
-            </div>
         </div>
 
     </template>
@@ -60,6 +46,7 @@
 <script>
 
     DeclarativeContent = Polymer({
+
         is: 'declarative-content',
 
         /**
@@ -71,27 +58,33 @@
             this.selected = 0;
         },
 
-        attached: function() {
-            //Modify background color after view content
-            this.changeColorsContent(this.selected);
-            //apply to each neon-animatable background color
-            this.addColorToEachNeonAnimatable();
+        attached: function () {
+            //init set color
+            this.$.views.style.backgroundColor = this.dataView[0].color;
         },
 
         _onPrevClick: function () {
+            var tempSelect = this.selected === 0 ? this.dataSize : (this.selected - 1);
+            this.changeColorsContent(tempSelect);
             this.entryAnimation = 'slide-from-left-animation';
             this.exitAnimation = 'slide-right-animation';
-            this.selected = this.selected === 0 ? this.dataSize : (this.selected - 1);
+            this.selected = tempSelect;
         },
 
         _onNextClick: function () {
+            var tempSelect = this.selected === 0 ? this.dataSize : (this.selected - 1);
+            this.changeColorsContent(tempSelect);
             this.entryAnimation = 'slide-from-right-animation';
             this.exitAnimation = 'slide-left-animation';
-            this.selected = this.selected === this.dataSize ? 0 : (this.selected + 1);
+            this.selected = tempSelect;
         },
 
+        /**
+         * Set next color to neon-animatable
+         * @param select - current number
+         */
         changeColorsContent: function (select) {
-            var styleContent = document.getElementById('content-view').style;
+            var styleContent = document.getElementById(this.dataView[select].id).style;
             if(styleContent == null || styleContent == undefined)
                 throw DOMException('Content not yet prepared for modify styles');
 
@@ -100,24 +93,8 @@
                 color = 'white';
 
             styleContent.backgroundColor = color;
-        },
-
-        //todo this method
-        addColorToEachNeonAnimatable : function() {
-//            var style = document.createElement('style');
-//            style.type = 'text/css';
-//            var cssRules = '';
-//            for(var i = 0; i < this.dataView.length; i++) {
-//                //create dynamic CSS class
-//                var colorContent = '--paper-' + this.dataView[i].id + "\n";
-//                cssRules = cssRules + colorContent + '#'+ this.dataView[i].id + ' { background: var('+ colorContent + '); }\n';
-//            }
-//            console.log(cssRules);
-//
-//            var styleContent = document.querySelector('style[is="custom"]');
-//            console.log(styleContent);
-//            styleContent.appendChild(style);
         }
+
     })
 
 

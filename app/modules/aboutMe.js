@@ -6,22 +6,22 @@ aboutMeModule.controller('aboutMeController', ['$scope', '$location', '$timeout'
 
     $scope.data = [
         {
-            id : '1',
+            id : 'banana',
             content : 'Banana',
             color : '#2E7D32'
         },
         {
-            id : '2',
+            id : 'orange',
             content : 'Orange',
             color : '#7B1FA2'
         },
         {
-            id : '3',
+            id : 'apple',
             content : 'Apple',
             color : '#558B2F'
         },
         {
-            id : '4',
+            id : 'mango',
             content : 'Mango',
             color : '#3949AB'
         }
