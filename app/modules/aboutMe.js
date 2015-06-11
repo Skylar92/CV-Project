@@ -2,35 +2,37 @@ var aboutMeModule = angular.module('application.aboutMe', []);
 
 aboutMeModule.controller('aboutMeController', ['$scope', '$location', '$timeout', function ($scope, $location, $timeout) {
 
-    document.title = 'About me';
+    $scope.colorHeader = '#aa00ff';
+    $scope.title = 'About me';
 
     $scope.data = [
         {
             id : 'banana',
             content : 'Banana',
-            color : '#2E7D32'
+            color : '#ab47bc'
         },
         {
             id : 'orange',
             content : 'Orange',
-            color : '#7B1FA2'
+            color : '#ba68c8'
         },
         {
             id : 'apple',
             content : 'Apple',
-            color : '#558B2F'
+            color : '#9c27b0'
         },
         {
             id : 'mango',
             content : 'Mango',
-            color : '#3949AB'
+            color : '#7b1fa2'
         }
     ];
 
+    document.title = $scope.title;
+
     if (document.getElementById('content-view') === null) {
-        var content = new DeclarativeContent($scope.data);
+        var content = new DeclarativeContent($scope.data, $scope.colorHeader, $scope.title);
         document.getElementById('created_content').appendChild(content);
-        document.getElementsByTagName('declarative-content')[0].setAttribute('data', $scope.data);
     }
 
     $scope.goBack = function (id) {

@@ -23,6 +23,7 @@
                     <button-back on-click="_onPrevClick"></button-back>
                     <button-back on-click="_onNextClick"></button-back>
                 </span>
+                <span id="title"></span>
             </div>
 
             <neon-animated-pages id="views"
@@ -52,7 +53,9 @@
         /**
          * @param data - JSON object which comprises content and background color to each content.
          */
-        factoryImpl: function (data) {
+        factoryImpl: function (data, headerColor, title) {
+            this.title = title;
+            this.headerColor = headerColor;
             this.dataView = data;
             this.dataSize = data.length - 1;
             this.selected = 0;
@@ -61,6 +64,10 @@
         attached: function () {
             //init set color
             this.$.views.style.backgroundColor = this.dataView[0].color;
+            //set header panel color
+            this.$.header.style.backgroundColor = this.headerColor;
+            //set title
+            this.$.title.innerText = this.title;
         },
 
         _onPrevClick: function () {
