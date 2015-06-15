@@ -58,7 +58,7 @@
             </neon-animated-pages>
 
             <!-- footer -->
-            <footer class="horizontal layout">
+            <footer class="horizontal layout" id="footer">
                     <paper-button on-click="_onPrevClick" tabindex="0" raised class="colorful custom flex" id="previous">
                         <iron-icon icon="arrow-back"></iron-icon>
                         Previous
@@ -83,6 +83,8 @@
 
         /**
          * @param data - JSON object which comprises content and background color to each content.
+         * @param headerColor
+         * @param title
          */
         factoryImpl: function (data, headerColor, title) {
             this.title = title;
@@ -95,6 +97,7 @@
         attached: function () {
             //init set color
             this.$.views.style.backgroundColor = this.dataView[0].color;
+            this.$.footer.style.backgroundColor = this.dataView[0].color;
             //set header panel color
             this.$.header.style.backgroundColor = this.headerColor;
             //set title
