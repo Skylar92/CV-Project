@@ -12,18 +12,36 @@
             color: white;
         }
 
+        #back {
+            margin-top: 1%;
+            margin-bottom: 1%;
+            margin-left: 1%;
+        }
+
+        #title {
+            font-size: 36px;
+            font-family: monospace;
+            text-shadow: 0 1px 0;
+        }
+
+        #previous, #next {
+            width: 50%;
+            color: white;
+            background-color: #3f51b5;
+        }
+
     </style>
 
     <template>
 
         <div id="content-view" class="fullbleed layout vertical">
             <div id="header">
-                <button-back></button-back>
-                <span style="text-align: center">
-                    <button-back on-click="_onPrevClick"></button-back>
-                    <button-back on-click="_onNextClick"></button-back>
+                <span class="start" id="back">
+                    <paper-fab icon="home" title="arrow-forward" tabindex="0"></paper-fab>
                 </span>
-                <span id="title"></span>
+                <!-- todo title display-->
+                <!--<span id="title" class="center"></span>-->
+
             </div>
 
             <neon-animated-pages id="views"
@@ -37,6 +55,16 @@
                     </neon-animatable>
                 </template>
             </neon-animated-pages>
+            <footer class="horizontal layout">
+                    <paper-button on-click="_onPrevClick" tabindex="0" raised class="colorful custom flex" id="previous">
+                        <iron-icon icon="arrow-back"></iron-icon>
+                        Previous
+                    </paper-button>
+                    <paper-button on-click="_onNextClick" tabindex="0" raised class="colorful custom flex" id="next">
+                        Next
+                        <iron-icon icon="arrow-forward"></iron-icon>
+                    </paper-button>
+            </footer>
         </div>
 
     </template>
