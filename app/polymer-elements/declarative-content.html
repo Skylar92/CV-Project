@@ -35,15 +35,16 @@
     <template>
 
         <div id="content-view" class="fullbleed layout vertical">
+            <!-- header -->
             <div id="header">
                 <span class="start" id="back">
                     <paper-fab icon="home" title="arrow-forward" tabindex="0"></paper-fab>
                 </span>
                 <!-- todo title display-->
                 <!--<span id="title" class="center"></span>-->
-
             </div>
 
+            <!-- content -->
             <neon-animated-pages id="views"
                                  class="flex"
                                  selected="[[selected]]"
@@ -55,6 +56,8 @@
                     </neon-animatable>
                 </template>
             </neon-animated-pages>
+
+            <!-- footer -->
             <footer class="horizontal layout">
                     <paper-button on-click="_onPrevClick" tabindex="0" raised class="colorful custom flex" id="previous">
                         <iron-icon icon="arrow-back"></iron-icon>
@@ -95,7 +98,7 @@
             //set header panel color
             this.$.header.style.backgroundColor = this.headerColor;
             //set title
-            this.$.title.innerText = this.title;
+//            this.$.title.innerText = this.title;
         },
 
         _onPrevClick: function () {
@@ -107,7 +110,7 @@
         },
 
         _onNextClick: function () {
-            var tempSelect = this.selected === 0 ? this.dataSize : (this.selected - 1);
+            var tempSelect = this.selected === this.dataSize ? 0 : (this.selected + 1);
             this.changeColorsContent(tempSelect);
             this.entryAnimation = 'slide-from-right-animation';
             this.exitAnimation = 'slide-left-animation';
