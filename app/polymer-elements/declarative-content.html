@@ -38,7 +38,7 @@
             <!-- header -->
             <div id="header">
                 <span class="start" id="back">
-                    <paper-fab icon="home" title="arrow-forward" tabindex="0"></paper-fab>
+                    <paper-fab icon="home" title="arrow-forward" tabindex="0" on-click="_home"></paper-fab>
                 </span>
                 <!-- todo title display-->
                 <!--<span id="title" class="center"></span>-->
@@ -59,14 +59,14 @@
 
             <!-- footer -->
             <footer class="horizontal layout" id="footer">
-                    <paper-button on-click="_onPrevClick" tabindex="0" raised class="colorful custom flex" id="previous">
-                        <iron-icon icon="arrow-back"></iron-icon>
-                        Previous
-                    </paper-button>
-                    <paper-button on-click="_onNextClick" tabindex="0" raised class="colorful custom flex" id="next">
-                        Next
-                        <iron-icon icon="arrow-forward"></iron-icon>
-                    </paper-button>
+                <paper-button on-click="_onPrevClick" tabindex="0" raised class="colorful custom flex" id="previous">
+                    <iron-icon icon="arrow-back"></iron-icon>
+                    Previous
+                </paper-button>
+                <paper-button on-click="_onNextClick" tabindex="0" raised class="colorful custom flex" id="next">
+                    Next
+                    <iron-icon icon="arrow-forward"></iron-icon>
+                </paper-button>
             </footer>
         </div>
 
@@ -104,6 +104,16 @@
 //            this.$.title.innerText = this.title;
         },
 
+        /**
+         * This method fire event to Angular controller and after catch event backing to home
+         */
+        _home: function () {
+            this.fire('home');
+        },
+
+        /**
+         * Click on next element content and animated to previous page
+         */
         _onPrevClick: function () {
             var tempSelect = this.selected === 0 ? this.dataSize : (this.selected - 1);
             this.changeColorsContent(tempSelect);
@@ -112,6 +122,9 @@
             this.selected = tempSelect;
         },
 
+        /**
+         * Click on next element content and animated to next page
+         */
         _onNextClick: function () {
             var tempSelect = this.selected === this.dataSize ? 0 : (this.selected + 1);
             this.changeColorsContent(tempSelect);
@@ -126,11 +139,11 @@
          */
         changeColorsContent: function (select) {
             var styleContent = document.getElementById(this.dataView[select].id).style;
-            if(styleContent == null || styleContent == undefined)
+            if (styleContent == null || styleContent == undefined)
                 throw DOMException('Content not yet prepared for modify styles');
 
             var color = this.dataView[select].color;
-            if(color == null || color == undefined)
+            if (color == null || color == undefined)
                 color = 'white';
 
             styleContent.backgroundColor = color;

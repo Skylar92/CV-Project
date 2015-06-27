@@ -35,12 +35,9 @@ aboutMeModule.controller('aboutMeController', ['$scope', '$location', '$timeout'
         document.getElementById('created_content').appendChild(content);
     }
 
-    $scope.goBack = function (id) {
-        document.getElementById(id).classList.add('content-animation-back');
-
+    document.getElementById('created_content').addEventListener('home', function(event) {
         $timeout(function () {
             $location.path('/');
         }, 1000);
-    }
-
+    });
 }]);
