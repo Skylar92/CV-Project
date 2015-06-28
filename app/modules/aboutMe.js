@@ -1,14 +1,37 @@
 var aboutMeModule = angular.module('application.aboutMe', []);
 
-aboutMeModule.controller('aboutMeController', ['$scope', '$location', '$timeout', function ($scope, $location, $timeout) {
+aboutMeModule.controller('aboutMeController',
+    ['$scope', '$location', '$timeout', '$http', function ($scope, $location, $timeout, $http) {
 
     $scope.colorHeader = '#aa00ff';
     $scope.title = 'About me';
 
+    $scope.fetchContent = function(url) {
+        var response = null;
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, false);
+        xhr.onload = function (e) {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    response = xhr.responseText;
+                } else {
+                    response = '<div style="font-size: 36px; text-align: center">error get '+ url + '</div>'
+                }
+            }
+        };
+        xhr.onerror = function (e) {
+            response = '<div style="font-size: 36px; text-align: center">error get '+ url + '</div>'
+        };
+        xhr.send(null);
+        return response;
+    };
+
+    console.log('>>>>>>>>>>>>>> ' + $scope.fetchContent('../app/templates/aboutEducation.html'));
+
     $scope.data = [
         {
             id : 'banana',
-            content : '<h1 style="color: #d6b7a9">Banana</h1>',
+            content : $scope.fetchContent('../app/templates/aboutEducation.html'),
             color : '#ab47bc'
         },
         {
