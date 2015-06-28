@@ -1,0 +1,30 @@
+<dom-module id="inner-content">
+
+    <template>
+        <div id="inner"></div>
+    </template>
+
+
+</dom-module>
+
+<script>
+
+    Polymer({
+        is: 'inner-content',
+
+        properties: {
+            data: String
+        },
+
+        ready: function () {
+            var el = this.$.inner;
+            var template = document.createElement('template');
+            template.innerHTML = this.data;
+            var fragment = this.instanceTemplate(template);
+            el.textContent = '';
+            el.appendChild(fragment);
+        }
+
+    })
+
+</script>

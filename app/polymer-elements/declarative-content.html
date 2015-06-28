@@ -18,12 +18,6 @@
             margin-left: 1%;
         }
 
-        #title {
-            font-size: 36px;
-            font-family: monospace;
-            text-shadow: 0 1px 0;
-        }
-
         #previous, #next {
             width: 50%;
             color: white;
@@ -52,7 +46,7 @@
                                  exit-animation="[[exitAnimation]]">
                 <template is="dom-repeat" items="{{dataView}}">
                     <neon-animatable id="{{item.id}}">
-                        <div class="text">{{item.content}}</div>
+                        <inner-content data="{{item.content}}"></inner-content>
                     </neon-animatable>
                 </template>
             </neon-animated-pages>
