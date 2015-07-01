@@ -12,7 +12,7 @@
          */
         $routeProvider
             .when('/aboutMe', {
-                templateUrl: 'templates/aboutMe.html',
+                templateUrl: 'templates/aboutMe/aboutMe.html',
                 controller: 'aboutMeController'
             })
             .otherwise({
