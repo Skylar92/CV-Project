@@ -9,3 +9,7 @@ body {
     background-color: #323232 !important;
     display: inline-block;
 }
+
+#router-view {
+    height: 100%;
+}

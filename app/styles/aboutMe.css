@@ -7,3 +7,24 @@
 #created_content {
     height: 100%;
 }
+
+section {
+    height: 100%;
+}
+
+.header, .footer {
+    padding: 8px 24px;
+}
+
+.footer {
+    text-align: right;
+}
+
+div.fullbleed {
+    height: 100%;
+    background-color: white
+}
+
+.header {
+    background-color: #00e5ff
+}
