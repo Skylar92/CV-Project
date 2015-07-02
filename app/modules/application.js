@@ -86,14 +86,21 @@
 
         };
 
-        $scope.hideElementsWithout = function(buttonList, id) {
-            for(var i = 0; i < buttonList.length; i++) {
-                var button = buttonList[i];
-                if(button.id !== id) {
-                    document.getElementById(button.id).classList.add('hide-grid-tile');
-                }
-            }
-        }
+        document.addEventListener('goto', function(id) {
+            console.log(id);
+                console.log('there are is FIRE!')
+        });
+
+
+
+        //$scope.hideElementsWithout = function(buttonList, id) {
+        //    for(var i = 0; i < buttonList.length; i++) {
+        //        var button = buttonList[i];
+        //        if(button.id !== id) {
+        //            document.getElementById(button.id).classList.add('hide-grid-tile');
+        //        }
+        //    }
+        //}
 
     }]);
 

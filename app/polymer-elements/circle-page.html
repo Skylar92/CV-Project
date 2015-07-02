@@ -1,0 +1,198 @@
+<dom-module is="circle-page">
+
+    <style>
+
+        :root {
+            height: 100%;
+            width: 100%
+        }
+
+        .header {
+            background-color: #607d8b;
+        }
+
+        .root-item {
+            height: 100%;
+            width: 100%;
+        }
+
+        .title {
+            position: absolute;
+            margin-top: 3%;
+            margin-left: 2%;
+        }
+
+        .image {
+            height: auto;
+            width: calc(100% / 6);
+            margin-top: 1%;
+        }
+
+        @media screen and (min-width: 480px) {
+            .image {
+                height: auto;
+                width: calc(100% / 6);
+                margin-top: 1%;
+            }
+        }
+
+        @media screen and (min-width: 600px) {
+            .image {
+                height: auto;
+                width: calc(100% / 6);
+                margin-top: 1%;
+            }
+        }
+
+        @media screen and (min-width: 840px) {
+            .image {
+                width: calc(100% / 8);
+                margin-top: 1%;
+            }
+        }
+
+        @media screen and (min-width: 960px) {
+            .image {
+                width: calc(100% / 12);
+                margin-top: 1%;
+            }
+        }
+
+        @media screen and (min-width: 1280px) {
+            .image {
+                width: calc(100% / 14);
+                margin-top: 1%;
+            }
+        }
+
+        @media screen and (min-width: 1440px) {
+            .image {
+                width: calc(100% / 16);
+                margin-top: 1%;
+            }
+        }
+
+        @media screen and (min-width: 1600px) {
+            .image {
+                width: calc(100% / 18);
+                margin-top: 1%;
+            }
+        }
+
+        .red-300 {
+            background: var(--google-red-300);
+        }
+
+        .yellow-300 {
+            background: var(--google-yellow-300);
+        }
+
+        .blue-300 {
+            background: var(--google-blue-300);
+        }
+
+        .green-300 {
+            background: var(--google-green-300);
+        }
+
+    </style>
+
+    <template>
+        <div class="root-item">
+            <div class="paper-font-title header">
+                <div>Maksim Galich CV</div>
+            </div>
+            <div class="vertical layout flex root-item" style="margin-bottom: 1%">
+                <template is="dom-repeat" items="[[config]]">
+                    <div class$="[[computeItem(item.color)]]" class="vertical flex" id="[[item.id]]">
+                        <div >
+                            <img src="[[item.img]]" class="image">
+                            &nbsp;&nbsp;
+                            <span class="paper-font-title title">[[item.text]]</span>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+    </template>
+
+</dom-module>
+
+
+<script>
+
+    Polymer({
+        is: 'circle-page',
+
+        behaviors: [
+            Polymer.NeonSharedElementAnimatableBehavior
+        ],
+
+        properties: {
+
+            config: {
+                type: Array,
+                value: function () {
+                    return [
+                        {id: 'aboutMe', text: 'About me', color: 'green', img: '../app/assets/homeView/aboutMe.svg'},
+                        {id: 'aboutEducation', text: 'About education', color: 'red', img: '../app/assets/homeView/aboutEducation.svg'},
+                        {id: 'aboutExperience', text: 'About experience', color: 'blue', img: '../app/assets/homeView/aboutExperience.svg'},
+                        {id: 'aboutWishes', text: 'About wishes', color: 'green', img: '../app/assets/homeView/aboutWishes.svg'},
+                        {id: 'myContact', text: 'My contacts', color: 'yellow', img: '../app/assets/homeView/myContact.svg'},
+                        {id: 'myProjects', text: 'My projects', color: 'blue', img: '../app/assets/homeView/myProjects.svg'}
+                    ]
+                }
+            },
+
+            animationConfig: {
+                type: Object,
+                value: function() {
+                    return {
+                        'exit': [{
+                            name: 'ripple-animation',
+                            id: 'ripple',
+                            fromPage: this
+                        }, {
+                            name: 'hero-animation',
+                            id: 'hero',
+                            fromPage: this
+                        }]
+                    }
+                }
+            }
+        },
+
+        listeners: {
+            click: '_onClick'
+        },
+
+        _onClick: function(event) {
+            var target = event.target;
+            while (target !== this && !target._templateInstance) {
+                target = target.parentNode;
+            }
+
+            // configure the page animation
+            this.sharedElements = {
+                'hero': target,
+                'ripple': target
+            };
+            this.animationConfig['exit'][0].gesture = {
+                x: event.x || event.pageX,
+                y: event.y || event.pageY
+            };
+
+            this.fire('circle-click', {
+                tile: target,
+                data: target._templateInstance.item
+            });
+        },
+
+        computeItem: function (color) {
+            return color + '-300 vertical flex';
+        }
+    })
+
+
+</script>

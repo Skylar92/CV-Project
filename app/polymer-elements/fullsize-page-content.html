@@ -1,0 +1,93 @@
+<dom-module id="fullsize-page-content">
+
+    <style>
+        .red-300 {
+            background: var(--google-red-300);
+        }
+
+        .yellow-300 {
+            background: var(--google-yellow-300);
+        }
+
+        .blue-300 {
+            background: var(--google-blue-300);
+        }
+
+        .green-300 {
+            background: var(--google-green-300);
+        }
+    </style>
+
+    <template>
+        <div id="fixed" class$="[[_computeFixedBackgroundClass(color)]]"></div>
+
+        <div id="card" class$="[[_computeCardClass(color)]]"></div>
+    </template>
+
+
+</dom-module>
+
+
+<script>
+
+    Polymer({
+        is: 'fullsize-page-content',
+
+        behaviors: [
+            Polymer.NeonSharedElementAnimatableBehavior
+        ],
+
+        _computeCardClass: function(color) {
+            var cls = 'card';
+            if (color) {
+                cls += ' ' + color + '-300';
+            }
+            return cls;
+        },
+
+        _computeFixedBackgroundClass: function(color) {
+            var cls = 'fixed';
+            if (color) {
+                cls += ' ' + color + '-300';
+            }
+            return cls;
+        },
+
+        properties: {
+
+            color: {
+                type: String
+            },
+
+            sharedElements: {
+                type: Object,
+                value: function() {
+                    return {
+                        'hero': this.$.card,
+                        'ripple': this.$.fixed
+                    }
+                }
+            },
+
+            animationConfig: {
+                type: Object,
+                value: function() {
+                    return {
+                        'entry': {
+                            // provided by neon-animation/animations/scale-up-animation.html
+                            name: 'scale-up-animation',
+                            node: this
+                        },
+                        'exit': {
+                            // provided by neon-animation-animations/fade-out-animation.html
+                            name: 'fade-out-animation',
+                            node: this
+                        }
+                    }
+                }
+
+            }
+        }
+    })
+
+</script>

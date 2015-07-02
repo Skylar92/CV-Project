@@ -1,0 +1,34 @@
+<dom-module id="home-content">
+
+    <template>
+
+        <neon-animated-pages id="pages" selected="0" style="position: inherit">
+
+            <circle-page on-circle-click="_onCircleClick"></circle-page>
+
+            <fullsize-page-content id="fullsize-card" hero-id="hero"
+                                   on-click="_onFullsizeClick"></fullsize-page-content>
+
+        </neon-animated-pages>
+
+    </template>
+</dom-module>
+
+<script>
+
+    Polymer({
+
+        is: 'home-content',
+
+        _onCircleClick: function(event) {
+            this.$['fullsize-card'].color = event.detail.data.color;
+            this.$.pages.selected = 1;
+        },
+
+        _onFullsizeClick: function(event) {
+            this.$.pages.selected = 0;
+        }
+
+    });
+
+</script>
