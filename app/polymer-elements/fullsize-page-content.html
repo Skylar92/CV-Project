@@ -1,6 +1,25 @@
 <dom-module id="fullsize-page-content">
 
     <style>
+
+        :host {
+            display: block;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .card {
+            position: relative;
+            margin: 200px 100px 0;
+            height: 700px;
+        }
+
         .red-300 {
             background: var(--google-red-300);
         }
@@ -73,16 +92,27 @@
                 type: Object,
                 value: function() {
                     return {
-                        'entry': {
-                            // provided by neon-animation/animations/scale-up-animation.html
-                            name: 'scale-up-animation',
-                            node: this
-                        },
-                        'exit': {
-                            // provided by neon-animation-animations/fade-out-animation.html
+                        'entry': [{
+                            name: 'ripple-animation',
+                            id: 'ripple',
+                            toPage: this
+                        }, {
+                            name: 'hero-animation',
+                            id: 'hero',
+                            toPage: this,
+                            timing: {
+                                delay: 150
+                            }
+                        }],
+                        'exit': [{
                             name: 'fade-out-animation',
-                            node: this
-                        }
+                            node: this.$.fixed
+                        }, {
+                            name: 'transform-animation',
+                            transformFrom: 'none',
+                            transformTo: 'translate(0px,-200vh) scale(0.9,1)',
+                            node: this.$.card
+                        }]
                     }
                 }
 
