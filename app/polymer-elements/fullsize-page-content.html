@@ -20,27 +20,27 @@
             height: 700px;
         }
 
-        .red-300 {
+        .red {
             background: var(--google-red-300);
         }
 
-        .yellow-300 {
+        .yellow {
             background: var(--google-yellow-300);
         }
 
-        .blue-300 {
+        .blue  {
             background: var(--google-blue-300);
         }
 
-        .green-300 {
+        .green  {
             background: var(--google-green-300);
         }
     </style>
 
     <template>
-        <div id="fixed" class$="[[_computeFixedBackgroundClass(color)]]"></div>
+        <div id="fixed" class$="{{_compileFixedBackgroundClass(color)}}"></div>
 
-        <div id="card" class$="[[_computeCardClass(color)]]"></div>
+        <div id="card" class$="{{_compileCardClass(color)}}"></div>
     </template>
 
 
@@ -56,20 +56,12 @@
             Polymer.NeonSharedElementAnimatableBehavior
         ],
 
-        _computeCardClass: function(color) {
-            var cls = 'card';
-            if (color) {
-                cls += ' ' + color + '-300';
-            }
-            return cls;
+        _compileCardClass: function(color) {
+            return 'card ' + color;
         },
 
-        _computeFixedBackgroundClass: function(color) {
-            var cls = 'fixed';
-            if (color) {
-                cls += ' ' + color + '-300';
-            }
-            return cls;
+        _compileFixedBackgroundClass: function(color) {
+            return 'fixed ' + color;
         },
 
         properties: {
@@ -103,15 +95,6 @@
                             timing: {
                                 delay: 150
                             }
-                        }],
-                        'exit': [{
-                            name: 'fade-out-animation',
-                            node: this.$.fixed
-                        }, {
-                            name: 'transform-animation',
-                            transformFrom: 'none',
-                            transformTo: 'translate(0px,-200vh) scale(0.9,1)',
-                            node: this.$.card
                         }]
                     }
                 }

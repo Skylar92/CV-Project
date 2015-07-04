@@ -1,10 +1,6 @@
 (function () {
 
-    var application = angular.module('application', [
-        'ngRoute',
-        'ngMaterial',
-        'application.constants',
-        'application.aboutMe']);
+    var application = angular.module('application', ['ngRoute']);
 
     application.config(['$routeProvider', function ($routeProvider) {
         /**
@@ -12,8 +8,22 @@
          */
         $routeProvider
             .when('/aboutMe', {
-                templateUrl: 'templates/aboutMe.html',
-                controller: 'aboutMeController'
+                templateUrl: 'templates/aboutMe.html'
+            })
+            .when('/aboutEducation', {
+                templateUrl: 'templates/aboutEducation.html'
+            })
+            .when('/aboutExperience', {
+                templateUrl: 'templates/aboutExperience.html'
+            })
+            .when('/aboutWishes', {
+                templateUrl: 'templates/aboutWishes.html'
+            })
+            .when('/myContact', {
+                templateUrl: 'templates/myContact.html'
+            })
+            .when('/myProjects', {
+                templateUrl: 'templates/myProjects.html'
             })
             .otherwise({
                 redirectTo: '/',
@@ -27,14 +37,12 @@
         $rootScope.layout = {};
 
         $rootScope.$on('$routeChangeStart', function () {
-            console.log('$routeChangeStart');
             $timeout(function () {
                 $rootScope.layout.loading = true;
             });
         });
 
         $rootScope.$on('$routeChangeSuccess', function () {
-            console.log('$routeChangeSuccess');
             $timeout(function () {
                 $rootScope.layout.loading = false;
             }, 400);
@@ -50,57 +58,28 @@
          * @param timeout - timeout to redirect on main page
          * @param callback - call add function when router change url
          */
-        $rootScope.home = function(timeout, callback) {
+        $rootScope.home = function (timeout, callback) {
             var wait = 1000;
-            if(timeout) {
+            if (timeout) {
                 wait = timeout;
             }
-            if(callback)
+            if (callback)
                 callback.call();
-            $timeout(function () { $location.path('/'); }, wait);
+            $timeout(function () {
+                $location.path('/');
+            }, wait);
         }
 
     }]);
 
-    var defaultController = application.controller('defaultController', ['$scope', '$location', '$timeout', function ($scope, $location, $timeout) {
-
+    application.controller('defaultController', ['$scope', '$location', '$timeout', function ($scope, $location, $timeout) {
         document.title = 'Welcome to my CV';
-
-        $scope.buttonList = BUTTON_LIST;
-        $scope.isLoadingAnimation = false;
-
-        /**
-         * Function to redirect to another page (must be global)
-         * @param id - path to redirect
-         */
-        $scope.redirect = function (id) {
-            $scope.isLoadingAnimation = true;
-            $scope.hideElementsWithout($scope.buttonList, id);
-
-            document.getElementById(id).classList.add('grid-tile-animation');
-            document.getElementById(id + '-image').classList.add('image-animation');
-
+        document.addEventListener('goto', function (data) {
             $timeout(function () {
-                $location.path(id);
-            }, 1000);
-
-        };
-
-        document.addEventListener('goto', function(id) {
-            console.log(id);
-                console.log('there are is FIRE!')
+                document.title = data.detail.text;
+                $location.path(data.detail.id);
+            }, 500);
         });
-
-
-
-        //$scope.hideElementsWithout = function(buttonList, id) {
-        //    for(var i = 0; i < buttonList.length; i++) {
-        //        var button = buttonList[i];
-        //        if(button.id !== id) {
-        //            document.getElementById(button.id).classList.add('hide-grid-tile');
-        //        }
-        //    }
-        //}
 
     }]);
 

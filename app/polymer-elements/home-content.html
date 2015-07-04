@@ -4,10 +4,9 @@
 
         <neon-animated-pages id="pages" selected="0" style="position: inherit">
 
-            <circle-page on-circle-click="_onCircleClick"></circle-page>
+            <menu-page on-item-click="_onItemClick"></menu-page>
 
-            <fullsize-page-content id="fullsize-card" hero-id="hero"
-                                   on-click="_onFullsizeClick"></fullsize-page-content>
+            <fullsize-page-content id="fullsize-content" hero-id="hero"></fullsize-page-content>
 
         </neon-animated-pages>
 
@@ -20,13 +19,10 @@
 
         is: 'home-content',
 
-        _onCircleClick: function (event) {
-            this.$['fullsize-card'].color = event.detail.data.color;
+        _onItemClick: function (event) {
+            this.$['fullsize-content'].color = event.detail.data.color;
             this.$.pages.selected = 1;
-        },
-
-        _onFullsizeClick: function (event) {
-            this.$.pages.selected = 0;
+            this.fire('goto', event.detail.data);
         }
 
     });

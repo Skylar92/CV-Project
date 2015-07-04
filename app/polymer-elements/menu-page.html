@@ -1,4 +1,4 @@
-<dom-module is="circle-page">
+<dom-module is="menu-page">
 
     <style>
 
@@ -14,6 +14,7 @@
         .root-item {
             height: 100%;
             width: 100%;
+            margin-bottom: 1%
         }
 
         .title {
@@ -79,19 +80,19 @@
             }
         }
 
-        .red-300 {
+        .red {
             background: var(--google-red-300);
         }
 
-        .yellow-300 {
+        .yellow {
             background: var(--google-yellow-300);
         }
 
-        .blue-300 {
+        .blue {
             background: var(--google-blue-300);
         }
 
-        .green-300 {
+        .green {
             background: var(--google-green-300);
         }
 
@@ -102,13 +103,13 @@
             <div class="paper-font-title header">
                 <div>Maksim Galich CV</div>
             </div>
-            <div class="vertical layout flex root-item" style="margin-bottom: 1%">
-                <template is="dom-repeat" items="[[config]]">
-                    <div class$="[[computeItem(item.color)]]" class="vertical flex" id="[[item.id]]">
+            <div class="vertical layout flex root-item">
+                <template is="dom-repeat" items="{{config}}">
+                    <div class$="{{_compileClasses(item.color)}}" class="vertical flex" id="{{item.id}}">
                         <div >
-                            <img src="[[item.img]]" class="image">
+                            <img src="{{item.img}}" class="image">
                             &nbsp;&nbsp;
-                            <span class="paper-font-title title">[[item.text]]</span>
+                            <span class="paper-font-title title">{{item.text}}</span>
                         </div>
                     </div>
                 </template>
@@ -123,7 +124,7 @@
 <script>
 
     Polymer({
-        is: 'circle-page',
+        is: 'menu-page',
 
         behaviors: [
             Polymer.NeonSharedElementAnimatableBehavior
@@ -183,14 +184,14 @@
                 y: event.y || event.pageY
             };
 
-            this.fire('circle-click', {
+            this.fire('item-click', {
                 tile: target,
                 data: target._templateInstance.item
             });
         },
 
-        computeItem: function (color) {
-            return color + '-300 vertical flex';
+        _compileClasses: function (color) {
+            return color + ' vertical flex';
         }
     })
 
