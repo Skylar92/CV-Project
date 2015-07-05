@@ -11,7 +11,7 @@
     <link rel="import" href="../bower_components/polymer/polymer.html">
     <!-- Polymer native templates includes html -->
     <link rel="import" href="../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
-    <link rel="import" href="../bower_components/neon-animation/neon-shared-element-animatable-behavior.html">
+
     <link rel="import" href="../bower_components/paper-styles/paper-styles.html">
     <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
     <link rel="import" href="../bower_components/paper-fab/paper-fab.html">
@@ -20,13 +20,18 @@
     <link rel="import" href="../bower_components/paper-styles/classes/typography.html">
     <link rel="import" href="../bower_components/iron-flex-layout/classes/iron-flex-layout.html">
     <!-- Animation Polymer import -->
+    <link rel="import" href="../bower_components/neon-animation/neon-shared-element-animatable-behavior.html">
+    <link rel="import" href="../bower_components/neon-animation/neon-animation-runner-behavior.html">
+    <link rel="import" href="../bower_components/neon-animation/neon-shared-element-animation-behavior.html">
     <link rel="import" href="../bower_components/neon-animation/neon-animated-pages.html">
     <link rel="import" href="../bower_components/neon-animation/neon-animatable.html">
     <link rel="import" href="../bower_components/neon-animation/neon-animations.html">
+
     <!-- Polymer includes html -->
     <link rel="import" href="../app/polymer-elements/home-content.html">
     <link rel="import" href="../app/polymer-elements/menu-page.html">
     <link rel="import" href="../app/polymer-elements/fullsize-page-content.html">
+    <link rel="import" href="../app/polymer-elements/item-page.html">
     <!-- Native include js files -->
     <script src="../app/modules/application.js"></script>
     <!-- Native include css files -->
@@ -37,7 +42,7 @@
 </head>
 <body>
 
-<div ng-view id="router-view"></div>
-
+<!--<div ng-view id="router-view"></div>-->
+<item-page color="red" title="test" url="../app/templates/myProjects.html"></item-page>
 </body>
 </html>

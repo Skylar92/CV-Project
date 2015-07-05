@@ -1,0 +1,73 @@
+<dom-module id="item-page">
+
+    <template>
+        <div class="fullbleed" id="full-item-content">
+
+            <section class="layout vertical">
+
+                <div class="header paper-font-title blue">
+                    <paper-fab icon="home" title="arrow-forward" tabindex="0" on-click="_onClick"></paper-fab>
+                    <span>My projects</span>
+                </div>
+
+                <paper-dialog-scrollable class="flex paper-font-body1">
+
+                    <span id="inner-content" class="fullbleed"></span>
+
+                </paper-dialog-scrollable>
+
+                <div class="footer paper-font-subhead">
+                    Maxim Galich
+                </div>
+
+            </section>
+
+        </div>
+
+    </template>
+
+</dom-module>
+
+
+<script>
+
+    Polymer({
+        is: 'item-page',
+
+        behaviors: [
+            Polymer.NeonAnimatableBehavior,
+            Polymer.NeonAnimationRunnerBehavior
+        ],
+
+        properties: {
+
+            animationConfig: {
+                type: Object,
+                value: function () {
+                    return {
+                        'exit': [{
+                            name: 'slide-up-animation',
+                            node: this.$['full-item-content']
+                        }]
+                    }
+                }
+            }
+        },
+
+        attached: function() {
+            this.url = '../app/templates/myProjects.html';
+            this.importHref(this.url, function (response) {
+                var element = document.createElement('content');
+                element.innerHTML = response.target.import.body.innerHTML;
+                Polymer.dom(this.$['inner-content'].appendChild(element));
+            });
+        },
+
+        _onClick: function () {
+            this.playAnimation('exit');
+            this.fire('something');
+        }
+    })
+
+
+</script>
