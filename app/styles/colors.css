@@ -1,1 +1,19 @@
+.red {
+    background: #e57373;
+}
 
+.yellow {
+    background:#f7cb4d;
+}
+
+.blue {
+    background: #7baaf7;
+}
+
+.green {
+    background: #57bb8a;
+}
+
+.header-color {
+    background-color: #607d8b;
+}

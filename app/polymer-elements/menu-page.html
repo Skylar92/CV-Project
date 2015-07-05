@@ -7,14 +7,14 @@
             width: 100%
         }
 
-        .header {
-            background-color: #607d8b;
-        }
-
         .root-item {
             height: 100%;
             width: 100%;
             margin-bottom: 1%
+        }
+
+        .menu-items {
+            height: 95%;
         }
 
         .title {
@@ -80,30 +80,14 @@
             }
         }
 
-        .red {
-            background: var(--google-red-300);
-        }
-
-        .yellow {
-            background: var(--google-yellow-300);
-        }
-
-        .blue {
-            background: var(--google-blue-300);
-        }
-
-        .green {
-            background: var(--google-green-300);
-        }
-
     </style>
 
     <template>
         <div class="root-item">
-            <div class="paper-font-title header">
+            <div class="paper-font-title header header-color">
                 <div>Maksim Galich CV</div>
             </div>
-            <div class="vertical layout flex root-item">
+            <div class="vertical layout flex menu-items">
                 <template is="dom-repeat" items="{{config}}">
                     <div class$="{{_compileClasses(item.color)}}" class="vertical flex" id="{{item.id}}">
                         <div >
