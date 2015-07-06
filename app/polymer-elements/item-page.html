@@ -1,27 +1,13 @@
 <dom-module id="item-page">
 
     <template>
-        <div class="fullbleed" id="full-item-content">
+        <div class="fullbleed">
+            <div class$="{{_compileClassForHeader(color)}}">
+                <paper-fab icon="home" title="arrow-forward" tabindex="0" on-click="goHome"></paper-fab>
+                <span>{{title}}</span>
+            </div>
 
-            <section class="layout vertical">
-
-                <div class="header paper-font-title blue">
-                    <paper-fab icon="home" title="arrow-forward" tabindex="0" on-click="_onClick"></paper-fab>
-                    <span>My projects</span>
-                </div>
-
-                <paper-dialog-scrollable class="flex paper-font-body1">
-
-                    <span id="inner-content" class="fullbleed"></span>
-
-                </paper-dialog-scrollable>
-
-                <div class="footer paper-font-subhead">
-                    Maxim Galich
-                </div>
-
-            </section>
-
+            <content></content>
         </div>
 
     </template>
@@ -41,31 +27,34 @@
 
         properties: {
 
+            color: {
+                type: String
+            },
+
+            title: {
+                type: String
+            },
+
             animationConfig: {
                 type: Object,
                 value: function () {
                     return {
                         'exit': [{
                             name: 'slide-up-animation',
-                            node: this.$['full-item-content']
+                            node: this
                         }]
                     }
                 }
             }
         },
 
-        attached: function() {
-            this.url = '../app/templates/myProjects.html';
-            this.importHref(this.url, function (response) {
-                var element = document.createElement('content');
-                element.innerHTML = response.target.import.body.innerHTML;
-                Polymer.dom(this.$['inner-content'].appendChild(element));
-            });
+        _compileClassForHeader: function (color) {
+            return color + ' header paper-font-title';
         },
 
-        _onClick: function () {
+        goHome: function () {
             this.playAnimation('exit');
-            this.fire('something');
+            this.fire('returnToHome');
         }
     })
 

@@ -53,23 +53,11 @@
             $rootScope.layout.loading = false;
         });
 
-        /**
-         * Common function go to main page
-         * @param timeout - timeout to redirect on main page
-         * @param callback - call add function when router change url
-         */
-        $rootScope.home = function (timeout, callback) {
-            var wait = 1000;
-            if (timeout) {
-                wait = timeout;
-            }
-            if (callback)
-                callback.call();
+        document.addEventListener('returnToHome', function() {
             $timeout(function () {
                 $location.path('/');
-            }, wait);
-        }
-
+            }, 500);
+        });
     }]);
 
     application.controller('defaultController', ['$scope', '$location', '$timeout', function ($scope, $location, $timeout) {
