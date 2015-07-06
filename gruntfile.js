@@ -42,8 +42,6 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-mkdir');
-    grunt.loadNpmTasks('grunt-vulcanize');
-    grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-css');
