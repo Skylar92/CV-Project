@@ -6,6 +6,8 @@
     "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-uglify": "^0.9.1",
     "grunt-css": "^0.5.4",
-    "grunt-mkdir": "^0.1.2"
+    "grunt-mkdir": "^0.1.2",
+    "grunt-vulcanize": "^1.0.0",
+    "vulcanize": "^1.4.2"
   }
 }

@@ -4,6 +4,20 @@ module.exports = function(grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
 
+        vulcanize: {
+            default: {
+                options: {
+                    inlineScripts: true,
+                    inlineCss: true
+                },
+                files: {
+                    'target/build-csp.html': [
+                        'app/polymer-elements/polymer-import.html'
+                    ]
+                }
+            }
+        },
+
         mkdir: {
             all: {
                 options: {
@@ -42,10 +56,11 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-mkdir');
+    grunt.loadNpmTasks('grunt-vulcanize');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-css');
 
-    grunt.registerTask('default', ['mkdir', 'concat', 'uglify', 'cssmin']);
+    grunt.registerTask('default', ['mkdir', 'vulcanize', 'concat', 'uglify', 'cssmin']);
 
 };
