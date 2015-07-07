@@ -1,7 +1,7 @@
 <dom-module id="item-page">
 
     <template>
-        <div class="fullbleed">
+        <div class="fullbleed" id="item-content">
             <div class$="{{_compileClassForHeader(color)}}">
                 <paper-fab icon="home" title="arrow-forward" tabindex="0" on-click="goHome"></paper-fab>
                 <span>{{title}}</span>
@@ -40,8 +40,8 @@
                 value: function () {
                     return {
                         'exit': [{
-                            name: 'slide-up-animation',
-                            node: this
+                            name: 'scale-down-animation',
+                            node: this.$['item-content']
                         }]
                     }
                 }

@@ -27,6 +27,6 @@
     "paper-elements": "PolymerElements/paper-elements#master",
     "platinum-elements": "PolymerElements/platinum-elements#master",
     "neon-elements": "PolymerElements/neon-elements#master",
-    "web-animations-next": "web-animations/web-animations-js#1.0.1"
+    "web-animations-js": "web-animations/web-animations-js#2.0.0"
   }
 }
