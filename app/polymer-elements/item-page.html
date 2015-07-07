@@ -52,9 +52,17 @@
             return color + ' header paper-font-title';
         },
 
+        listeners: {
+            'neon-animation-finish': '_onNeonAnimationFinish'
+        },
+
         goHome: function () {
             this.playAnimation('exit');
             this.fire('returnToHome');
+        },
+
+        _onNeonAnimationFinish: function() {
+            this.$['item-content'].style.display = 'none';
         }
     })
 
