@@ -28,7 +28,7 @@
     </style>
 
     <template>
-        <div class="root-item">
+        <div class="root-item" id="root-content">
             <div class="paper-font-title header header-color">
                 <div>Maksim Galich CV</div>
             </div>
@@ -56,7 +56,9 @@
         is: 'menu-page',
 
         behaviors: [
-            Polymer.NeonSharedElementAnimatableBehavior
+            Polymer.NeonSharedElementAnimatableBehavior,
+            Polymer.NeonAnimatableBehavior,
+            Polymer.NeonAnimationRunnerBehavior
         ],
 
         properties: {
@@ -79,6 +81,10 @@
                 type: Object,
                 value: function() {
                     return {
+                        'entry': [{
+                            name: 'scale-up-animation',
+                            node: this.$['root-content']
+                        }],
                         'exit': [{
                             name: 'ripple-animation',
                             id: 'ripple',
@@ -95,6 +101,10 @@
 
         listeners: {
             click: '_onClick'
+        },
+
+        attached: function() {
+            this.playAnimation('entry');
         },
 
         _onClick: function(event) {
