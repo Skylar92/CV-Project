@@ -2,12 +2,25 @@
 
     <template>
         <div class="fullbleed" id="item-content">
-            <div class$="{{_compileClassForHeader(color)}}">
-                <paper-fab icon="home" title="arrow-forward" tabindex="0" on-click="goHome"></paper-fab>
-                <span>{{title}}</span>
-            </div>
 
-            <content></content>
+            <section class="layout vertical">
+
+                <div class$="{{_compileClassForHeader(color)}}">
+                    <paper-fab icon="home" title="arrow-forward" tabindex="0" on-click="goHome"></paper-fab>
+                    <span>{{title}}</span>
+                </div>
+
+                <paper-dialog-scrollable class="flex paper-font-body1">
+
+                    <content></content>
+
+                </paper-dialog-scrollable>
+
+                <div class="footer paper-font-subhead">
+                    Maksim Galich CV
+                </div>
+
+            </section>
         </div>
 
     </template>
@@ -61,7 +74,7 @@
             this.fire('returnToHome');
         },
 
-        _onNeonAnimationFinish: function() {
+        _onNeonAnimationFinish: function () {
             this.$['item-content'].style.display = 'none';
         }
     })
