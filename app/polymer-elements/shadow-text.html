@@ -1,0 +1,59 @@
+<dom-module id="shadow-text">
+
+    <style>
+
+        .shadow {
+            padding: 8px;
+            margin: 16px;
+        }
+
+        .shadow-2dp {
+        @apply(--shadow-elevation-2dp);
+        }
+
+        .shadow-3dp {
+        @apply(--shadow-elevation-3dp);
+        }
+
+        .shadow-4dp {
+        @apply(--shadow-elevation-4dp);
+        }
+
+        .shadow-6dp {
+        @apply(--shadow-elevation-6dp);
+        }
+
+        .shadow-8dp {
+        @apply(--shadow-elevation-8dp);
+        }
+
+        .shadow-16dp {
+        @apply(--shadow-elevation-16dp);
+        }
+    </style>
+
+    <template>
+        <div class$="{{compileClasses(elevation)}}">
+            <content></content>
+        </div>
+    </template>
+
+</dom-module>
+
+<script>
+
+    Polymer({
+        is: 'shadow-text',
+
+        properties: {
+            elevation: {
+                type: String
+            }
+        },
+
+        compileClasses: function() {
+            return 'shadow shadow-' + this.elevation + 'dp';
+        }
+    })
+
+</script>

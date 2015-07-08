@@ -1,41 +1,77 @@
+<link rel="import" href="../bower_components/paper-styles/paper-styles.html">
 <item-page color="yellow" title="My contact">
+
+    <style>
+
+        .social-image {
+            margin-right: 5%
+        }
+
+    </style>
+
     <div>
-        <p>Ukraine</p>
+        <iron-iconset name="contact" icons="skype" src="assets/contact/skype.svg" size="24" width="24"></iron-iconset>
 
-        <p>Mykolaiv region, Mykolaiv</p>
+        <shadow-text elevation="16">
+            <table style="padding: 1%" class="vertical-section">
 
-        <p>Index: 5400</p>
+                <tr>
+                    <td>
+                        <iron-icon icon="communication:location-on"></iron-icon>
+                    </td>
+                    <td>Ukraine, Mykolaiv region, Mykolaiv</td>
+                </tr>
 
-        <p>Skype: natix46</p>
+                <tr>
+                    <td>
+                        <iron-icon icon="communication:call"></iron-icon>
+                    </td>
 
-        <p>Telephone: +38093-99-64-423</p>
+                    <td>+380939964423</td>
+                </tr>
 
-        <p>Email: natrix82567@gmail.com</p>
+                <tr>
+                    <td>
+                        <iron-icon icon="communication:email"></iron-icon>
+                    </td>
 
-        <p>You can reach me at the following links</p>
+                    <td>natrix82567@gmail.com</td>
+                </tr>
 
-        <div style="text-align: center">
-            <span style="margin-right: 5%">
+                <tr>
+                    <td>
+                        <iron-icon icon="contact:skype"></iron-icon>
+                    </td>
+
+                    <td>natix46</td>
+                </tr>
+            </table>
+        </shadow-text>
+
+        <shadow-text elevation="4">
+            <div style="text-align: center">
+            <span class="social-image">
                 <a href="https://www.facebook.com/profile.php?id=100007233314770">
                     <img src="../app/assets/contact/facebook.svg" class="image">
                 </a>
             </span>
-            <span style="margin-right: 5%">
+            <span class="social-image">
                 <a href="https://twitter.com/natrix82567">
                     <img src="../app/assets/contact/twitter.svg" class="image">
                 </a>
             </span>
-            <span style="margin-right: 5%">
+            <span class="social-image">
                 <a href="https://www.linkedin.com/profile/view?id=214666229&trk=nav_responsive_tab_profile">
                     <img src="../app/assets/contact/in.svg" class="image">
                 </a>
             </span>
-            <span style="margin-right: 5%">
+            <span class="social-image">
                 <a href="#">
                     <img src="../app/assets/contact/google.svg" class="image">
                 </a>
             </span>
-        </div>
+            </div>
+        </shadow-text>
 
     </div>
 

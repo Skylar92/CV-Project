@@ -1,12 +1,20 @@
 <dom-module id="item-page">
 
+    <style>
+
+        paper-fab {
+            background-color: #0091ea;
+        }
+
+    </style>
+
     <template>
         <div class="fullbleed" id="item-content">
 
             <section class="layout vertical">
 
                 <div class$="{{_compileClassForHeader(color)}}">
-                    <paper-fab icon="home" title="arrow-forward" tabindex="0" on-click="goHome"></paper-fab>
+                    <paper-fab icon="home" title="home" tabindex="0" on-click="goHome"></paper-fab>
                     <span>{{title}}</span>
                 </div>
 
