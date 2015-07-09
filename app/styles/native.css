@@ -20,11 +20,21 @@ body {
     margin-top: 1%;
 }
 
+.image-content {
+    min-width: 100px;
+    min-height: 100px;
+}
+
 @media screen and (min-width: 480px) {
     .image {
         height: auto;
         width: calc(100% / 14);
         margin-top: 1%;
+    }
+
+    .image-content {
+        min-width: 64px;
+        min-height: 64px;
     }
 }
 
@@ -34,6 +44,11 @@ body {
         width: calc(100% / 16);
         margin-top: 1%;
     }
+
+    .image-content {
+        min-width: 64px;
+        min-height: 64px;
+    }
 }
 
 @media screen and (min-width: 840px) {
@@ -41,12 +56,22 @@ body {
         width: calc(100% / 18);
         margin-top: 1%;
     }
+
+    .image-content {
+        min-width: 80px;
+        min-height: 80px;
+    }
 }
 
 @media screen and (min-width: 960px) {
     .image {
         width: calc(100% / 16);
         margin-top: 1%;
+    }
+
+    .image-content {
+        min-width: 80px;
+        min-height: 80px;
     }
 }
 
@@ -62,6 +87,7 @@ body {
         width: calc(100% / 20);
         margin-top: 1%;
     }
+
 }
 
 @media screen and (min-width: 1600px) {
@@ -69,5 +95,6 @@ body {
         width: calc(100% / 22);
         margin-top: 1%;
     }
+
 }
 
