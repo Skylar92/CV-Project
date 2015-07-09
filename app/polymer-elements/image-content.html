@@ -1,0 +1,39 @@
+<dom-module id="image-content">
+
+    <style>
+        img.image {
+            min-width: 100px;
+            min-height: 100px
+        }
+    </style>
+
+    <template>
+        <table>
+            <tr>
+                <td>
+                    <img src="{{src}}" class="image">
+                </td>
+                <td>
+                    <content></content>
+                </td>
+            </tr>
+        </table>
+    </template>
+
+
+</dom-module>
+
+
+<script>
+
+    Polymer({
+        is: 'image-content',
+
+        properties: {
+            src: {
+                type: String
+            }
+        }
+    })
+
+</script>
