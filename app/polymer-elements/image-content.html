@@ -1,16 +1,23 @@
 <dom-module id="image-content">
 
+    <style>
+        :host {
+            padding: 1px;
+        }
+        .image-pos {
+            float: left;
+        }
+    </style>
+
     <template>
-        <table>
-            <tr>
-                <td>
-                    <img src="{{src}}" class="image image-content">
-                </td>
-                <td>
-                    <content></content>
-                </td>
-            </tr>
-        </table>
+        <div>
+            <div class="image-pos">
+                <img src="{{src}}" class="image image-content">
+            </div>
+            <div>
+                <content></content>
+            </div>
+        </div>
     </template>
 
 
